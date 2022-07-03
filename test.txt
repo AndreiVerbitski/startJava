@@ -1,2 +1,3 @@
 Hello git! 123
 It`s new line.
+New line, check git status.
