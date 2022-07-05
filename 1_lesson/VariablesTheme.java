@@ -23,11 +23,11 @@ public class VariablesTheme {
 
         System.out.println("\n2. Расчет стоимости товара со скидкой");
 
-        int firstItem = 100;
-        int secondItem = 200;
-        int allItems = firstItem + secondItem;
-        double discount = allItems * 0.11;
-        double priceDiscount = allItems + discount;
+        int priceGoodsX = 100;
+        int priceGoodsY = 200;
+        int priceGoodsXY = priceGoodsX + priceGoodsY;
+        double discount = priceGoodsXY * 0.11;
+        double priceDiscount = priceGoodsXY + discount;
 
         System.out.println("Сумма скидки " + discount);
         System.out.println("Стоимость со скидкой: " + priceDiscount);
@@ -46,20 +46,20 @@ public class VariablesTheme {
         long longMax = 9223372036854775807L;
 
         System.out.println("Первоначальное значение byte: " + byteMax);
-        System.out.println("Значение после декремента byte: " + (++ byteMax));
-        System.out.println("Значение после инкремента byte: " + (-- byteMax));
+        System.out.println("Значение после декремента byte: " + (++byteMax));
+        System.out.println("Значение после инкремента byte: " + (--byteMax));
 
         System.out.println("Первоначальное значение short: " + shortMax);
-        System.out.println("Значение после декремента short: " + (++ shortMax));
-        System.out.println("Значение после инкремента short: " + (-- shortMax));
+        System.out.println("Значение после декремента short: " + (++shortMax));
+        System.out.println("Значение после инкремента short: " + (--shortMax));
 
         System.out.println("Первоначальное значение int: " + intMax);
-        System.out.println("Значение после декремента int: " + (++ intMax));
-        System.out.println("Значение после инкремента int: " + (-- intMax));
+        System.out.println("Значение после декремента int: " + (++intMax));
+        System.out.println("Значение после инкремента int: " + (--intMax));
 
         System.out.println("Первоначальное значение long: " + longMax);
-        System.out.println("Значение после декремента long: " + (++ longMax));
-        System.out.println("Значение после инкремента long: " + (-- longMax));
+        System.out.println("Значение после декремента long: " + (++longMax));
+        System.out.println("Значение после инкремента long: " + (--longMax));
 
         System.out.println("\n5. Перестановка значений переменных");
 
@@ -77,7 +77,7 @@ public class VariablesTheme {
 
         System.out.println("с помощью арифметических операций");
         numb1 = numb1 - numb2;
-        numb2 = numb2 + numb1 ;
+        numb2 = numb2 + numb1;
 
         System.out.println(numb1);
         System.out.println(numb2);
@@ -113,32 +113,33 @@ public class VariablesTheme {
         int sumDigits = digit1 + digit2 + digit3;
         int multDigits = digit1 * digit2 * digit3;
 
-        System.out.println("Сумма цифр " + digit1 + " " + digit2 + " " + digit3 + " = "  + sumDigits);
-        System.out.println("Произведение цифр " + digit1 + " " + digit2 + " " + digit3 + " = "  + + multDigits);
+        System.out.println("Сумма цифр " + digit1 + " " + digit2 + " " + digit3 + " = " + sumDigits);
+        System.out.println("Произведение цифр " + digit1 + " " + digit2 + " " + digit3 + " = " + multDigits);
 
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
 
         char slash = '/';
         char backSlash = '\\';
-        char lowerSlash = '_';
+        char underscore = '_';
         char leftBrace = '(';
         char rightBrace = ')';
         char space = ' ';
 
         System.out.println("" + space + space + space + space + slash + backSlash + space + space + space);
         System.out.println("" + space + space + space + slash + space + space + backSlash + space + space);
-        System.out.println("" + space + space + slash + lowerSlash + leftBrace + space + rightBrace + backSlash);
+        System.out.println("" + space + space + slash + underscore + leftBrace + space + rightBrace + backSlash);
         System.out.println("" + space + slash + space + space + space + space + space + space + backSlash);
-        System.out.println("" + slash + lowerSlash + lowerSlash + lowerSlash + lowerSlash + slash + backSlash
-                + lowerSlash + lowerSlash + backSlash);
+        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + backSlash
+                + underscore + underscore + backSlash);
 
         System.out.println("\n9. Отображение количества сотен, десятков и единиц числа");
 
         srcNum = 123;
 
         System.out.println("Число " + srcNum + " содержит " + (srcNum / 100) + " сотен");
-        System.out.println("Число " + srcNum + " содержит " + (srcNum / 10 ) % 10 + " десятков");
-        System.out.println("Число " + srcNum + " содержит " + (srcNum % 10 ) + " единиц");
+        System.out.println("Число " + srcNum + " содержит " + (srcNum / 10) % 10 + " десятков");
+        System.out.println("Число " + srcNum + " содержит " + (srcNum % 10) + " единиц");
+        
         System.out.println("\n10. Преобразование секунд");
 
         int srcSec = 86399;
