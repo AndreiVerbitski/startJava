@@ -50,8 +50,6 @@ public class IfElseStatementTheme {
 
         System.out.println("\n3. Работа с числом");
 
-        System.out.println("\n3. Работа с числом");
-
         int srcNum = 1612;
 
         if(srcNum != 0) {
@@ -157,7 +155,7 @@ public class IfElseStatementTheme {
         int rentMonth = 5000;
         int incomeMonth = 13000;
         int primeCost = 9000;
-        int profitInYear = ((incomeMonth - rentMonth - primeCost) * 12);
+        int profitInYear = (incomeMonth - rentMonth - primeCost) * 12;
 
         if (profitInYear > 0) {
             System.out.println("Прибыль за год: +" + profitInYear);
