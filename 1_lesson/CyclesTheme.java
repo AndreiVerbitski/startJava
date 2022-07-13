@@ -1,3 +1,5 @@
+import java.util.function.DoubleToIntFunction;
+
 public class CyclesTheme {
 
     public static void main(String[] args) {
@@ -27,34 +29,26 @@ public class CyclesTheme {
         int max = 0;
         int min = 0;
 
-        if (number1 > number2) {
-            max = number1;
-        } else {
+        if (number1 > number2) max = number1;
+        else {
             max = number2;
         }
 
-        if (max < number3) {
-            max = number3;
-        }
+        if (max < number3) max = number3;
 
-        if (number1 < number2) {
-            min = number1;
-        } else {
+        if (number1 < number2) min = number1;
+        else {
             min = number2;
         }
-        if (min < number3) {
-            min = number3;
-        }
+        if (min < number3) min = number3;
 
-        max -= 1;
-
-        for (int i = max; i > min; i--) {
+        for (int i = max - 1; i > min; i--) {
             System.out.println(i);
         }
 
         System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
 
-        number1 = 1234;
+        int srcNumber = 1234;
         int reverse = 0;
         int sumDigits = 0;
 
@@ -74,16 +68,16 @@ public class CyclesTheme {
 
         for (int i = 1; i <= 24; i += 2) {
             if (counter % 5 == 0) {
-                System.out.printf("%n\t%d", i);
+                System.out.printf("%n%3d", i);
                 counter = 0;
             } else {
-                System.out.printf("\t%d", i);
+                System.out.printf("%3d", i);
             }
             counter++;
         }
 
         for (int i = counter; i < 5; i++) {
-            System.out.printf("  %d ", 0);
+            System.out.printf("%3d", 0);
         }
 
         System.out.println("\n\n5. Проверка количества единиц на четность");
@@ -100,15 +94,11 @@ public class CyclesTheme {
                 countOnes++;
             }
         }
+
         number1 = 3141591;
+        String msg = countOnes % 2 == 0 ? "четное" : "нечетное";
 
-        if (countOnes % 2 == 0) {
-            odd = "четное";
-        } else {
-            odd = "нечетное";
-        }
-
-        System.out.println("Число " + number1 + " содержит " + countOnes + " " + odd + " количество единиц");
+        System.out.println("Число " + number1 + " содержит " + countOnes + " " + msg + " количество единиц");
 
         System.out.println("\n6. Отображение фигур в консоли");
 
@@ -186,7 +176,6 @@ public class CyclesTheme {
             digit = number1 % 10;
             reverse = (reverse * 10) + digit;
             number1 /= 10;
-
         }
 
         if (reverse == originalNumber) {
@@ -195,34 +184,29 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
 
-        int srcNumber = 123321;
+        srcNumber = 101002;
         int copySrcNumber = srcNumber;
-        int halfSrcNumber = 0;
-        int bottomSrcNumber = 0;
+        int topHalfSrcNumber = srcNumber / 1000;
+        int bottomHalfSrcNumber = srcNumber - (srcNumber / 1000) * 1000;
         int sumHalfSrcNumber = 0;
         int sumBottomSrcNumber = 0;
 
-        i = 0;
-        while (srcNumber != 0) {
-            if (i < 3) {
-                int reminder = srcNumber % 10;
-                bottomSrcNumber = (bottomSrcNumber * 10) + reminder;
-                sumBottomSrcNumber += reminder;
-                srcNumber /= 10;
-                reminder = 0;
-                i++;
-            } else {
-                int reminder = srcNumber % 10;
-                halfSrcNumber = (halfSrcNumber * 10) + reminder;
-                sumHalfSrcNumber += reminder;
-                srcNumber /= 10;
-                reminder = 0;
-                i++;
-            }
+        while (topHalfSrcNumber != 0) {
+            int reminder = topHalfSrcNumber % 10;
+            sumHalfSrcNumber += reminder;
+            topHalfSrcNumber /= 10;
+            reminder = 0;
+            reminder = bottomHalfSrcNumber % 10;
+            sumBottomSrcNumber += reminder;
+            bottomHalfSrcNumber /= 10;
+            reminder = 0;
         }
 
-        System.out.println("Сумма цифр " + halfSrcNumber + " = " + sumHalfSrcNumber);
-        System.out.println("Сумма цифр " + bottomSrcNumber + " = " + sumBottomSrcNumber);
+        topHalfSrcNumber = srcNumber / 1000;
+        bottomHalfSrcNumber = srcNumber - (srcNumber / 1000) * 1000;
+
+        System.out.println("Сумма цифр " + topHalfSrcNumber + " = " + sumHalfSrcNumber);
+        System.out.println("Сумма цифр " + bottomHalfSrcNumber + " = " + sumBottomSrcNumber);
 
         if (sumHalfSrcNumber == sumBottomSrcNumber) {
             System.out.println("Число " + copySrcNumber + " является счатливым");
@@ -231,21 +215,21 @@ public class CyclesTheme {
         }
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
-        System.out.println("\t\t\tТАБЛИЦА ПИФАГОРА");
+        System.out.println("\t\tТАБЛИЦА ПИФАГОРА");
 
         for (i = 1; i < 10; i++) {
             if (i == 2) {
-                System.out.println("    __________________________________");
+                System.out.println("  ___________________________");
             }
             for (int j = 1; j < 10; j++) {
                 if (j == 1) {
                     if (i * j == 1) {
-                        System.out.printf("\t  %s", '|');
+                        System.out.printf("\t%s", '|');
                     } else {
-                        System.out.printf("\t%d %s", i * j, "|");
+                        System.out.printf("%3d %s", i * j, "|");
                     }
                 } else {
-                    System.out.printf("\t%d", i * j);
+                    System.out.printf("%3d", i * j);
                 }
             }
             System.out.println();
