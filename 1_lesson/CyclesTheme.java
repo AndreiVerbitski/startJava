@@ -30,16 +30,13 @@ public class CyclesTheme {
         int min = 0;
 
         if (number1 > number2) max = number1;
-        else {
-            max = number2;
-        }
+        else max = number2;
 
         if (max < number3) max = number3;
 
         if (number1 < number2) min = number1;
-        else {
-            min = number2;
-        }
+        else min = number2;
+
         if (min < number3) min = number3;
 
         for (int i = max - 1; i > min; i--) {
@@ -184,22 +181,20 @@ public class CyclesTheme {
 
         System.out.println("\n9. Определение, является ли число счастливым");
 
-        srcNumber = 101002;
+        srcNumber = 123321;
         int copySrcNumber = srcNumber;
-        int topHalfSrcNumber = srcNumber / 1000;
-        int bottomHalfSrcNumber = srcNumber - (srcNumber / 1000) * 1000;
+        int topHalfSrcNumber = srcNumber % 1000;
+        int bottomHalfSrcNumber = srcNumber % 1000;
         int sumHalfSrcNumber = 0;
         int sumBottomSrcNumber = 0;
 
         while (topHalfSrcNumber != 0) {
-            int reminder = topHalfSrcNumber % 10;
-            sumHalfSrcNumber += reminder;
+            digit = topHalfSrcNumber % 10;
+            sumHalfSrcNumber += digit;
             topHalfSrcNumber /= 10;
-            reminder = 0;
-            reminder = bottomHalfSrcNumber % 10;
-            sumBottomSrcNumber += reminder;
+            digit = bottomHalfSrcNumber % 10;
+            sumBottomSrcNumber += digit;
             bottomHalfSrcNumber /= 10;
-            reminder = 0;
         }
 
         topHalfSrcNumber = srcNumber / 1000;
@@ -209,7 +204,7 @@ public class CyclesTheme {
         System.out.println("Сумма цифр " + bottomHalfSrcNumber + " = " + sumBottomSrcNumber);
 
         if (sumHalfSrcNumber == sumBottomSrcNumber) {
-            System.out.println("Число " + copySrcNumber + " является счатливым");
+            System.out.println("Число " + copySrcNumber + " является счастливым");
         } else {
             System.out.println("Число " + copySrcNumber + " не является счастливым");
         }
@@ -224,7 +219,7 @@ public class CyclesTheme {
             for (int j = 1; j < 10; j++) {
                 if (j == 1) {
                     if (i * j == 1) {
-                        System.out.printf("\t%s", '|');
+                        System.out.printf("    %s", '|');
                     } else {
                         System.out.printf("%3d %s", i * j, "|");
                     }
