@@ -49,11 +49,11 @@ public class CyclesTheme {
         int reverse = 0;
         int sumDigits = 0;
 
-        while (number1 != 0) {
-            int digit = number1 % 10;
+        while (srcNumber != 0) {
+            int digit = srcNumber % 10;
             sumDigits += digit;
             reverse = reverse * 10 + digit;
-            number1 /= 10;
+            srcNumber /= 10;
         }
 
         System.out.println("Исходное число в обратном порядке " + reverse);
@@ -79,23 +79,22 @@ public class CyclesTheme {
 
         System.out.println("\n\n5. Проверка количества единиц на четность");
 
-        number1 = 3141591;
+        srcNumber = 3141591;
         int digit = 0;
         int countOnes = 0;
-        String odd = "";
 
-        while (number1 != 0) {
-            digit = number1 % 10;
-            number1 /= 10;
+        while (srcNumber != 0) {
+            digit = srcNumber % 10;
+            srcNumber /= 10;
             if (digit == 1) {
                 countOnes++;
             }
         }
 
-        number1 = 3141591;
+        srcNumber = 3141591;
         String msg = countOnes % 2 == 0 ? "четное" : "нечетное";
 
-        System.out.println("Число " + number1 + " содержит " + countOnes + " " + msg + " количество единиц");
+        System.out.println("Число " + srcNumber + " содержит " + countOnes + " " + msg + " количество единиц");
 
         System.out.println("\n6. Отображение фигур в консоли");
 
@@ -156,7 +155,7 @@ public class CyclesTheme {
                     System.out.printf("%-1s\t%4s%n", (int) j, j);
                 }
             }
-            if (j >= 97 && j <= 122) {
+            else if (j >= 97 && j <= 122) {
                 if (j % 2 == 0) {
                     System.out.printf("%-1s\t%4s%n", (int) j, j);
                 }
@@ -183,7 +182,7 @@ public class CyclesTheme {
 
         srcNumber = 123321;
         int copySrcNumber = srcNumber;
-        int topHalfSrcNumber = srcNumber % 1000;
+        int topHalfSrcNumber = srcNumber / 1000;
         int bottomHalfSrcNumber = srcNumber % 1000;
         int sumHalfSrcNumber = 0;
         int sumBottomSrcNumber = 0;
@@ -198,7 +197,7 @@ public class CyclesTheme {
         }
 
         topHalfSrcNumber = srcNumber / 1000;
-        bottomHalfSrcNumber = srcNumber - (srcNumber / 1000) * 1000;
+        bottomHalfSrcNumber = srcNumber % 1000;
 
         System.out.println("Сумма цифр " + topHalfSrcNumber + " = " + sumHalfSrcNumber);
         System.out.println("Сумма цифр " + bottomHalfSrcNumber + " = " + sumBottomSrcNumber);
