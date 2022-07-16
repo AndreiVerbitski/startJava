@@ -8,12 +8,11 @@ public class MyFirstGame {
         int secretNumber = 1 + srcNumber.nextInt(100);
         int startRange = 1;
         int endRange = 100;
+        int playerAttempt = 0;
 
-        while (true) {
-            int playerAttempt = (startRange + endRange) / 2;
-            if (playerAttempt == secretNumber) {
-                break;
-            } else if (playerAttempt > secretNumber) {
+        while (playerAttempt != secretNumber) {
+            playerAttempt = (startRange + endRange) / 2;
+            if (playerAttempt > secretNumber) {
                 endRange = playerAttempt - 1;
                 System.out.println("число " + playerAttempt + " больше того, что загадал компьютер");
             } else {
