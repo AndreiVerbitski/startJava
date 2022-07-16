@@ -18,10 +18,6 @@ public class Calculator {
                 result *= a;
             }
         }
-
-        while (calculator) {
-            calculator = false;
-            System.out.println(a + " " + sign + " " + b + " = " + result);
-        }
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }
