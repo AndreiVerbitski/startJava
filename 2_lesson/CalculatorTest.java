@@ -5,6 +5,7 @@ public class CalculatorTest {
     public static void main(String[] args) {
         System.out.println("\n1. Калькулятор:");
         boolean play = true;
+        
         while (play) {
             System.out.print("Введите первое число: ");
             Calculator firstCalculator = new Calculator();
