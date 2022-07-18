@@ -4,38 +4,30 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         System.out.println("\n1. Калькулятор:");
-        boolean play = true;
-        
-        while (play) {
+        String answer = "";
+
+        while (!"no".equals(answer)) {
             System.out.print("Введите первое число: ");
             Calculator firstCalculator = new Calculator();
-            Scanner srcNumb1 = new Scanner(System.in);
-            firstCalculator.a = srcNumb1.nextInt();
+            Scanner srcScanner = new Scanner(System.in);
+            firstCalculator.setA(srcScanner.nextInt());
 
             System.out.print("Введите знак математической операции: ");
-            Scanner srcSign = new Scanner(System.in);
-            firstCalculator.sign = srcSign.next().charAt(0);
+
+            firstCalculator.setSign(srcScanner.next().charAt(0));
 
             System.out.print("Введите второе число: ");
-            Scanner srcNumb2 = new Scanner(System.in);
-            firstCalculator.b = srcNumb2.nextInt();
-            System.out.println(firstCalculator.getResult(firstCalculator.a, firstCalculator.sign, firstCalculator.b));
+            firstCalculator.setB(srcScanner.nextInt());
+            System.out.println(firstCalculator.calculate());
 
-            boolean playAgain = true;
-
-            while (playAgain) {
+            while (!"yes".equals(answer)) {
                 System.out.print("Хотите продолжить вычисления? [yes/no] ");
-                Scanner answerContinue = new Scanner(System.in);
-                String answer = answerContinue.nextLine();
+                answer = srcScanner.nextLine();
 
-                switch (answer) {
-                    case "no" :
-                        play = false;
-                        playAgain = false;
-                        break;
-                    case "yes" :
-                        playAgain = false;
-                        break;
+                if (answer.equals("yes")) {
+                    break;
+                } else if (answer.equals("no")) {
+                    break;
                 }
             }
         }
