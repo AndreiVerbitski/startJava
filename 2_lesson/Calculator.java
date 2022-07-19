@@ -39,26 +39,20 @@ public class Calculator {
     public int calculate() {
         switch (sign) {
             case '+':
-                result = a + b;
-                break;
+                return a + b;
             case '-':
-                result = a - b;
-                break;
+                return a - b;
             case '*':
-                result = a * b;
-                break;
+                return a * b;
             case '/':
-                result = a / b;
-                break;
+                return a / b;
             case '%':
-                result = a % b;
-                break;
+                return a % b;
             case '^':
                 result = 1;
                 for (int i = 1; i <= b; i++) {
                     result *= a;
                 }
-                break;
         }
         return result;
     }
