@@ -1,7 +1,7 @@
 public class Calculator {
     private int a;
     private int b;
-    public int result;
+    private int result;
     private char sign;
 
     public void setA(int a) {
@@ -10,10 +10,6 @@ public class Calculator {
 
     public void setB(int b) {
         this.b = b;
-    }
-
-    public void setResult(int result) {
-        this.result = result;
     }
 
     public void setSign(char sign) {
