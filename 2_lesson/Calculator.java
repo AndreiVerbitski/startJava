@@ -1,7 +1,6 @@
 public class Calculator {
     private int a;
     private int b;
-    private int result;
     private char sign;
 
     public void setA(int a) {
@@ -29,11 +28,12 @@ public class Calculator {
             case '%':
                 return a % b;
             case '^':
-                result = 1;
+                int result = 1;
                 for (int i = 1; i <= b; i++) {
                     result *= a;
                 }
+                return a = result;
         }
-        return result;
+        return a;
     }
 }
