@@ -10,12 +10,10 @@ public class CalculatorTest {
 
         while (!"no".equals(answer)) {
             if (answer.equals("yes")) {
-                answer = "";
                 System.out.print("Введите первое число: ");
                 calc.setA(console.nextInt());
 
                 System.out.print("Введите знак математической операции:");
-
                 calc.setSign(console.next().charAt(0));
 
                 System.out.print("Введите второе число: ");

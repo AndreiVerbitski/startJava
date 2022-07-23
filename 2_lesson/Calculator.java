@@ -32,8 +32,8 @@ public class Calculator {
                 for (int i = 1; i <= b; i++) {
                     result *= a;
                 }
-                return a = result;
+                return result;
         }
-        return a;
+        return 0;
     }
 }
