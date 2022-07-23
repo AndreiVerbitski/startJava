@@ -9,16 +9,7 @@ public class Jaeger {
     private int strength;
     private int armor;
 
-    public Jaeger() {
-        modelName = "";
-        mark = "";
-        origin = "";
-        height = 0.0f;
-        weight = 0.0f;
-        speed = 0;
-        strength = 0;
-        armor = 0;
-    }
+    public Jaeger() {}
 
     public Jaeger(String modelName, String mark, String origin, float height, float weight,
                   int speed, int strength, int armor) {
