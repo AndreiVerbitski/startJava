@@ -7,7 +7,6 @@ public class GuessNumberTest {
         GuessNumber guessNumber = new GuessNumber();
         guessNumber.setSecretNumber();
         Scanner console = new Scanner(System.in);
-        Scanner console1 = new Scanner(System.in);
         System.out.print("Введите имя первого игрока: ");
         Player firstPlayer = new Player(console.nextLine());
         System.out.print("Введите имя второго игрока: ");
