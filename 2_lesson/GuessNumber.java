@@ -12,12 +12,25 @@ public class GuessNumber {
         this.secondPlayer = secondPlayer;
     }
 
-    public void playGame() {
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public void setSecretNumber() {
         Random number = new Random();
-        secretNumber = 1 + number.nextInt(100);
+        this.secretNumber = 1 + number.nextInt(100);
+        ;
+    }
+
+    public void launch() {
+        setSecretNumber();
         Scanner console = new Scanner(System.in);
 
-        while (!"no".equals(answer)) {
+        while (!"".equals(answer)) {
             if ("yes".equals(answer)) {
                 System.out.println(secretNumber);
                 System.out.print("Отгадывает " + firstPlayer.getName() + ": ");
@@ -47,10 +60,6 @@ public class GuessNumber {
                         System.out.println("Число " + secondPlayer.getNumber() + " меньше того, что загадал компьютер");
                     }
                 }
-            } else {
-                secretNumber = 1 + number.nextInt(100);
-                System.out.print("Хотите продолжить игру? [yes/no]: ");
-                answer = console.nextLine();
             }
         }
     }
