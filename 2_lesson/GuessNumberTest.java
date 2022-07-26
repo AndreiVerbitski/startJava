@@ -10,18 +10,19 @@ public class GuessNumberTest {
         System.out.print("Введите имя второго игрока: ");
         Player secondPlayer = new Player(console.nextLine());
         GuessNumber guessNumber = new GuessNumber(firstPlayer, secondPlayer);
+        String answer = "yes";
 
-        while (guessNumber.getAnswer() != "no") {
-            if ("yes".equals(guessNumber.getAnswer())) {
-                guessNumber.setSecretNumber();
-                guessNumber = new GuessNumber(firstPlayer, secondPlayer);
+        while (!"no".equals(answer)) {
+            if ("yes".equals(answer)) {
+                guessNumber.generateSecretNumber();
                 guessNumber.launch();
-            } else if ("no".equals(guessNumber.getAnswer())) {
-                guessNumber.setAnswer("no");
+                answer = "";
+            } else if ("no".equals(answer)) {
+                answer = "no";
                 System.out.println("Игра окончена");
             } else {
                 System.out.print("Хотите продолжить игру? [yes/no]: ");
-                guessNumber.setAnswer(console.nextLine());
+                answer = console.nextLine();
             }
         }
     }
