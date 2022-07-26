@@ -1,3 +1,5 @@
+package lesson_1.final;
+
 import java.util.Random;
 
 public class MyFirstGame {

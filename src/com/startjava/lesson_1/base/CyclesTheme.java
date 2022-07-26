@@ -1,3 +1,5 @@
+package lesson_1.base;
+
 import java.util.function.DoubleToIntFunction;
 
 public class CyclesTheme {
