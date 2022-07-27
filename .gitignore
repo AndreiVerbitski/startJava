@@ -1,5 +1,7 @@
 *.class
 out/
+options
+optionsj
 # Log file
 *.log
 
