@@ -16,16 +16,12 @@ public class GuessNumberTest {
 
         while (!"no".equals(answer)) {
             if ("yes".equals(answer)) {
-                guessNumber.generateSecretNumber();
                 guessNumber.launch();
                 answer = "";
-            } else if ("no".equals(answer)) {
-                answer = "no";
-                System.out.println("Игра окончена");
-            } else {
                 System.out.print("Хотите продолжить игру? [yes/no]: ");
                 answer = console.nextLine();
             }
         }
+        System.out.println("Игра окончена");
     }
 }
