@@ -1,4 +1,4 @@
-package lesson_1.final;
+package lesson_1.calculator;
 
 public class Calculator {
     public static void main(String[] args) {
