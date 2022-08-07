@@ -8,22 +8,15 @@ public class ArrayTheme {
         int[] intArr = {1, 2, 3, 4, 5, 6, 7};
         int len = intArr.length;
         System.out.print("Массив до модификации: ");
-
-
         showArrayInt(intArr);
 
-        for (int i = len - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (intArr[j + 1] > intArr[j]) {
-                    int temp = intArr[j];
-                    intArr[j] = intArr[j + 1];
-                    intArr[j + 1] = temp;
-                }
-            }
+        for (int i = len - 1; i > (len / 2); i--) {
+            int tmp = intArr[6 - i];
+            intArr[6 - i] = intArr[i];
+            intArr[i] = tmp;
         }
 
         System.out.print("\nМассив после модификации: ");
-
         showArrayInt(intArr);
 
         System.out.println("\n\n2. Вывод произведения элементов массива");
@@ -38,7 +31,7 @@ public class ArrayTheme {
 
         for (int i = 1; i < len - 1; i++) {
             productOfNumbers *= intArr[i];
-            System.out.print(intArr[i] + ((i != 8) ? " * " : (" = ") + productOfNumbers));
+            System.out.print(intArr[i] + ((i != 8) ? " * " : " = " + productOfNumbers));
         }
 
         System.out.println("\nИндекс 0: " + intArr[0]);
@@ -52,7 +45,7 @@ public class ArrayTheme {
             doubleArr[i] = Math.random();
         }
 
-        int averageIndex = (len - 1) / 2;
+        double averageNumber = doubleArr[(len - 1) / 2];
 
         System.out.println("Исходный массив:");
 
@@ -63,26 +56,21 @@ public class ArrayTheme {
         System.out.println("\nИзменённый массив:");
 
         int scoreZero = 0;
-
         for (int i = 0; i < len; i++) {
-            if (doubleArr[i] > doubleArr[averageIndex]) {
+            if (doubleArr[i] > averageNumber) {
                 scoreZero++;
                 doubleArr[i] = 0;
             }
-
             System.out.printf((i == 8 ? "%n%3.03f " : "%3.03f "), doubleArr[i]);
         }
         System.out.println("\nКоличество обнуленных ячеек: " + scoreZero);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
-
         char[] alphabet = new char[26];
         len = alphabet.length;
-        int count = 0;
 
-        for (int i = 65; i <= 90; i++) {
-            alphabet[count] = (char) i;
-            count++;
+        for (int i = 0; i < len; i++) {
+            alphabet[i] = (char) (65 + i);
         }
 
         for (int i = len; i >= 0; i--) {
@@ -113,8 +101,6 @@ public class ArrayTheme {
             } while (equal);
         }
 
-        showArrayInt(intArr);
-
         for (int i = len - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (intArr[j] > intArr[j + 1]) {
@@ -126,56 +112,54 @@ public class ArrayTheme {
         }
 
         System.out.println();
+
         for (int i = 0; i < len; i++) {
-            if (i == 9 || i == 19) {
-                System.out.printf("%2d", intArr[i]);
-                System.out.println();
-            } else System.out.printf("%2d ", intArr[i]);
+            System.out.printf(i == 9 || i == 19 ? "%2d\n" : "%2d ", intArr[i]);
         }
 
         System.out.println("\n\n6. Сдвиг элементов массива");
+        String[] srcArr = {"", "AA", "", "BBB", "CC", "D", "", "E", "FF", "G", ""};
 
-        String[] strArr = {"", "AA", "", "BBB", "CC", "D", "", "E", "FF", "G", ""};
-        String[] copyStrArr = new String[7];
-        len = strArr.length;
-        count = 0;
+        len = srcArr.length;
+        int count = 0;
         int length = 0;
+        for (int i = 0; i < len; i++) {
+            if (!srcArr[i].isBlank()) {
+                count++;
+            }
+        }
+
+        String[] destArr = new String[count];
+        count = 0;
 
         for (int i = 0; i < len; i++) {
-            if (!strArr[i].isBlank()) {
+            if (!srcArr[i].isBlank()) {
                 for (int j = i; j < len; j++) {
-                    if (strArr[j].isBlank()) {
+                    if (srcArr[j].isBlank()) {
                         break;
-                    } else {
-                        length++;
                     }
+                    length++;
                 }
-                System.arraycopy(strArr, i, copyStrArr, count, length);
+                System.arraycopy(srcArr, i, destArr, count, length);
                 count++;
                 length = 0;
             }
         }
-
-        showArrayStr(strArr);
-
+        showArrayStr(srcArr);
         System.out.println();
-
-        showArrayStr(copyStrArr);
+        showArrayStr(destArr);
     }
 
     private static int showArrayInt(int someArray[]) {
         for (int numb : someArray) {
             System.out.print(numb + " ");
-
         }
         return 0;
-
     }
 
     private static int showArrayStr(String someArray[]) {
-        for (String txt : someArray) {
-            System.out.print(txt + " ");
-
+        for (String letter : someArray) {
+            System.out.print(letter + " ");
         }
         return 0;
     }
