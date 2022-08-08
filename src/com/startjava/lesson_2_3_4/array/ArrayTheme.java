@@ -11,7 +11,7 @@ public class ArrayTheme {
         showArrayInt(intArr);
 
         for (int i = len - 1; i > (len / 2); i--) {
-            int tmp = intArr[6 - i];
+            int tmp = intArr[(len - 1) - i];
             intArr[6 - i] = intArr[i];
             intArr[i] = tmp;
         }
@@ -27,11 +27,11 @@ public class ArrayTheme {
             intArr[i] = i;
         }
 
-        int productOfNumbers = 1;
+        int prodNumbers = 1;
 
         for (int i = 1; i < len - 1; i++) {
-            productOfNumbers *= intArr[i];
-            System.out.print(intArr[i] + ((i != 8) ? " * " : " = " + productOfNumbers));
+            prodNumbers *= intArr[i];
+            System.out.print(intArr[i] + ((i != 8) ? " * " : " = " + prodNumbers));
         }
 
         System.out.println("\nИндекс 0: " + intArr[0]);
