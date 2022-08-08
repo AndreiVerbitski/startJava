@@ -7,21 +7,17 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         System.out.println("\n1. Калькулятор:");
-        String answer = "yes";
         Calculator calc = new Calculator();
         Scanner console = new Scanner(System.in);
+        String answer = "yes";
 
         while (!"no".equals(answer)) {
             if (answer.equals("yes")) {
-                System.out.print("Введите первое число: ");
-                calc.setA(console.nextInt());
-
-                System.out.print("Введите знак математической операции:");
-                calc.setSign(console.next().charAt(0));
-
-                System.out.print("Введите второе число: ");
-                calc.setB(console.nextInt());
+                System.out.print("Введите математическое выражение: ");
+                String mathExpression = console.nextLine();
+                calc.setMathExpression(mathExpression.split(" "));
                 System.out.println(calc.calculate());
+                answer = "";
             } else {
                 System.out.print("Хотите продолжить вычисления? [yes/no] ");
                 answer = console.nextLine();

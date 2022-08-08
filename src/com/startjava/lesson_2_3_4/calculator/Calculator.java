@@ -1,40 +1,30 @@
 package lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int a;
-    private int b;
-    private char sign;
+    private String[] mathExpression = new String[3];
 
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
+    public void setMathExpression(String[] mathExpression) {
+        this.mathExpression = mathExpression;
     }
 
     public int calculate() {
+        int a = Integer.parseInt(mathExpression[0]);
+        int b = Integer.parseInt(mathExpression[2]);
+        char sign = mathExpression[1].charAt(0);
         switch (sign) {
             case '+':
-                return a + b;
+                return Math.addExact(a, b);
             case '-':
-                return a - b;
+                return Math.subtractExact(a, b);
             case '*':
-                return a * b;
+                return Math.multiplyExact(a, b);
             case '/':
-                return a / b;
+                return Math.floorDiv(a, b);
             case '%':
                 return a % b;
             case '^':
-                int result = 1;
-                for (int i = 1; i <= b; i++) {
-                    result *= a;
-                }
-                return result;
+                double result = Math.pow(a, b);
+                return (int)result;
         }
         return 0;
     }
