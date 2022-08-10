@@ -1,13 +1,8 @@
 package lesson_2_3_4.calculator;
 
 public class Calculator {
-    private String[] mathExpression = new String[3];
 
-    public void setMathExpression(String[] mathExpression) {
-        this.mathExpression = mathExpression;
-    }
-
-    public int calculate() {
+    public int calculate(String[] mathExpression) {
         int a = Integer.parseInt(mathExpression[0]);
         int b = Integer.parseInt(mathExpression[2]);
         char sign = mathExpression[1].charAt(0);
