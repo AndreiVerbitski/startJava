@@ -2,10 +2,11 @@ package lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    public int calculate(String[] mathExpression) {
-        int a = Integer.parseInt(mathExpression[0]);
-        int b = Integer.parseInt(mathExpression[2]);
-        char sign = mathExpression[1].charAt(0);
+    public int calculate(String mathExpression) {
+        String[] fullExpression = mathExpression.split(" ");
+        int a = Integer.parseInt(fullExpression[0]);
+        int b = Integer.parseInt(fullExpression[2]);
+        char sign = fullExpression[1].charAt(0);
         switch (sign) {
             case '+':
                 return Math.addExact(a, b);
@@ -18,8 +19,7 @@ public class Calculator {
             case '%':
                 return a % b;
             case '^':
-                double result = Math.pow(a, b);
-                return (int)result;
+                return (int) Math.pow(a, b);
         }
         return 0;
     }
