@@ -14,7 +14,7 @@ public class Calculator {
             case '/' -> Math.floorDiv(a, b);
             case '%' -> a % b;
             case '^' -> (int) Math.pow(a, b);
-            default -> throw new IllegalStateException("Unexpected value: " + a);
+            default -> throw new IllegalStateException("Unexpected value: " + sign);
         };
         return result;
     }
